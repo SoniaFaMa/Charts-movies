@@ -1,6 +1,8 @@
 
 import movies from './movies.js'
-//import BarsChart from "./BarsChart";
+import "./App.css"
+import "./barschart.css"
+
 
 import { Bar } from 'react-chartjs-2';
 import {
@@ -19,6 +21,8 @@ import {
 
 function App() {
 
+   
+
 
     ChartJS.register(
         CategoryScale,
@@ -34,7 +38,7 @@ function App() {
     
     
     var film = [];
-    var duration = ["1:30","2h","3h"];
+    var duration = ["1:30h","2h","3h"];
     
     
     var misoptions = {
@@ -47,8 +51,8 @@ function App() {
         },
         scales : {
             y : {
-                min : -25,
-                max : 100
+                min : 0,
+                max : 160,
             },
             x: {
                 ticks: { color: 'rgba(0, 220, 195)'}
@@ -57,7 +61,7 @@ function App() {
     };
     
     var midata = {
-        labels: film,
+        labels: duration,
         datasets: [
             {
                 label: 'Duración peliculas',
@@ -67,7 +71,7 @@ function App() {
         ]
     };
     
-
+    
   
 let groupFilm1=0
 let groupFilm2=0
@@ -107,20 +111,20 @@ let groupFilm3=0
 
     })
 
-    const films=[groupFilm1,groupFilm2,groupFilm3]
+    
 
     film.push(groupFilm1,groupFilm2,groupFilm3)
     
     
     return (
         <div>
-                  
-            
+                  <div className='general-container'>
+                  <p className='title'>Peliculas según su duración</p>
            
                 <div className="bg-light mx-auto px-2 border border-2 border-primary" style={{width:"450px", height:"225px"}}>
                 <Bar data={midata} options={misoptions} />
                 </div>
-                
+                </div>
 
           
             
