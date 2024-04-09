@@ -1,6 +1,9 @@
-import './App.css'
+import Title from "./Title"
 import movies from './movies.js'
 import BarsChart from "./BarsChart";
+import './App.css'
+
+
 
 function App() {
 
@@ -38,14 +41,11 @@ let groupFilm3=0
    
 
     return (
+      
         <div>
-
-        <div className='title'>
-          Duración de las peliculas
-          
-          </div>
-            
+             <Title/>
              <BarsChart films={movieDuration}/> 
+            
               
                 <div className="bg-light mx-auto px-2 border border-2 border-primary" style={{width:"450px", height:"225px"}}>
                 

@@ -26,10 +26,8 @@ ChartJS.register(
 
 let duration = ["1:30","2h","3h"];
 
-
-
     
-let misoptions = {
+let options = {
     responsive : true,
     animation : false,
     plugins : {
@@ -63,7 +61,7 @@ export default function BarsChart({films}) {
     };
 
     return (<div>
-        <Bar data={midata} options={misoptions} />
+        <Bar data={midata} options={options} />
         
         </div>)
     
