@@ -1,85 +1,17 @@
-
+import './App.css'
+import './barschart.css'
 import movies from './movies.js'
-import "./App.css"
-import "./barschart.css"
-
-
-import { Bar } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler,
-} from 'chart.js';
-
-
+import BarsChart from "./BarsChart";
 
 function App() {
 
-   
 
-
-    ChartJS.register(
-        CategoryScale,
-        LinearScale,
-        PointElement,
-        BarElement,
-        Title,
-        Tooltip,
-        Legend,
-        Filler
-    );
-    
-    
-    
-    var film = [];
-    var duration = ["1:30h","2h","3h"];
-    
-    
-    var misoptions = {
-        responsive : true,
-        animation : false,
-        plugins : {
-            legend : {
-                display : false
-            }
-        },
-        scales : {
-            y : {
-                min : 0,
-                max : 160,
-            },
-            x: {
-                ticks: { color: 'rgba(0, 220, 195)'}
-            }
-        }
-    };
-    
-    var midata = {
-        labels: duration,
-        datasets: [
-            {
-                label: 'Duración peliculas',
-                data: film,
-                backgroundColor: 'rgba(0, 220, 195, 0.5)'
-            }
-        ]
-    };
-    
-    
   
+
 let groupFilm1=0
 let groupFilm2=0
 let groupFilm3=0
 
-
-
-    
     let arrayDuration= movies.forEach((film)=>{
 
         let duration = film.duration  
@@ -91,58 +23,43 @@ let groupFilm3=0
 
         if(result<90){
             groupFilm1=groupFilm1+1
-            
+
           }
-        
+
           if(result>90 && result<120){
             groupFilm2=groupFilm2+1
-            
+
           }
-        
+
           if(result > 120){
             groupFilm3=groupFilm3+1
-            
-
           }
-
-          
-          
-         
 
     })
 
-    
+    const films=[groupFilm1,groupFilm2,groupFilm3]
+   
 
-    film.push(groupFilm1,groupFilm2,groupFilm3)
-    
-    
     return (
         <div>
-                  <div className='general-container'>
-                  <p className='title'>Peliculas según su duración</p>
-           
+
+        <div className='title'>
+          Duración de las peliculas
+          
+          </div>
+            
+             <BarsChart film={films}/> 
+              
                 <div className="bg-light mx-auto px-2 border border-2 border-primary" style={{width:"450px", height:"225px"}}>
-                <Bar data={midata} options={misoptions} />
-                </div>
+                
                 </div>
 
-          
-            
         </div>
-        
+
+
         
     );
-
-
-
-
-
-
-    
 }
 
-
-
- 
 
 export default App;
