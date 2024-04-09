@@ -1,6 +1,6 @@
-import Title from "./Title"
+import Title from "./Components/Title/Title"
 import movies from './movies.js'
-import BarsChart from "./BarsChart";
+import BarsChart from "./Components/BarsChart/BarsChart";
 import './App.css'
 
 
