@@ -1,5 +1,4 @@
 import './App.css'
-import './barschart.css'
 import movies from './movies.js'
 import BarsChart from "./BarsChart";
 
@@ -12,9 +11,9 @@ let groupFilm1=0
 let groupFilm2=0
 let groupFilm3=0
 
-    let arrayDuration= movies.forEach((film)=>{
+    let arrayDuration= movies.forEach((movie)=>{
 
-        let duration = film.duration  
+        let duration = movie.duration  
         let separate= duration.replace(/[^0-9]+/g, " ")
         let hours= separate.substring(0,1)
         let hoursToMinutes= hours*60
@@ -37,7 +36,7 @@ let groupFilm3=0
 
     })
 
-    const films=[groupFilm1,groupFilm2,groupFilm3]
+    const movieDuration=[groupFilm1,groupFilm2,groupFilm3]
    
 
     return (
@@ -48,7 +47,7 @@ let groupFilm3=0
           
           </div>
             
-             <BarsChart film={films}/> 
+             <BarsChart films={movieDuration}/> 
               
                 <div className="bg-light mx-auto px-2 border border-2 border-primary" style={{width:"450px", height:"225px"}}>
                 
