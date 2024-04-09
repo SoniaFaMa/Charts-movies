@@ -24,10 +24,10 @@ ChartJS.register(
 );
 
 
-let duration = ["1:30","2h","3h"];
+const duration = ["1:30","2h","3h"];
 
     
-let options = {
+const options = {
     responsive : true,
     animation : false,
     plugins : {
@@ -49,7 +49,7 @@ let options = {
 
 export default function BarsChart({films}) {
 
-    var midata = {
+    const data = {
         labels: duration,
         datasets: [
             {
@@ -61,7 +61,7 @@ export default function BarsChart({films}) {
     };
 
     return (<div>
-        <Bar data={midata} options={options} />
+        <Bar data={data} options={options} />
         
         </div>)
     
