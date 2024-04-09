@@ -5,8 +5,6 @@ import BarsChart from "./BarsChart";
 function App() {
 
 
-  
-
 let groupFilm1=0
 let groupFilm2=0
 let groupFilm3=0
